@@ -12,12 +12,14 @@ function handleClick(event) {
     let position = bloco.id ;
 
     if (handleMove(position)) {
-        alert("O Jogo Acabou !")
+        
+        setTimeout(() => {
+        alert("O Jogo Acabou - O vencedor foi " + playerTime )
 
-    };
+    }, 10);
+    }
+    
     updateBloco();
-
-
 }
 
 function updateBloco() {
@@ -33,4 +35,19 @@ function updateBloco() {
         }
 
     })
+}
+
+// Botão de Restart abaixo
+let btn = document.querySelector(".btn")
+btn.addEventListener('click', restart)
+
+function restart(){
+    let blocos = document.querySelectorAll(".bloco")
+
+    blocos.forEach(blocos => {
+        blocos.innerHTML =""
+    })
+
+    board = ['','','','','','','','','']
+    gameOver = false;
 }
